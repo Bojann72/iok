@@ -1,0 +1,208 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(45deg, #ff0000, #ffffff);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    max-width: 90%;
+    width: 500px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    margin: 0.5rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 200px;
+}
+
+.btn-play {
+    background: #ff0000;
+    color: white;
+}
+
+.btn-settings {
+    background: #333;
+    color: white;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.levels {
+    display: none;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.level-btn {
+    background: #ff0000;
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.level-btn:hover {
+    background: #cc0000;
+}
+
+.settings {
+    display: none;
+}
+
+.toggle {
+    margin: 1rem 0;
+}
+
+.question-container {
+    display: none;
+}
+
+.question {
+    margin-bottom: 1rem;
+}
+
+.options button {
+    display: block;
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+    border: none;
+    border-radius: 5px;
+    background: #f0f0f0;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.options button:hover {
+    background: #e0e0e0;
+}
+
+.back-btn {
+    background: #333;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+@keyframes correct {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); background: #4CAF50; }
+    100% { transform: scale(1); }
+}
+
+.correct-answer {
+    animation: correct 0.5s ease;
+}
+
+@keyframes wrong {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); background: #f44336; }
+    75% { transform: translateX(10px); background: #f44336; }
+    100% { transform: translateX(0); }
+}
+
+.wrong-answer {
+    animation: wrong 0.5s ease;
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.5s ease;
+}
+
+.notification.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.notification.correct {
+    background: #4CAF50;
+}
+
+.notification.wrong {
+    background: #f44336;
+}
+
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: #f00;
+    position: absolute;
+    animation: confetti-fall 3s ease-in-out;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+/* ... (kode CSS sebelumnya tetap sama) ... */
+
+.health-container {
+    margin-bottom: 20px;
+}
+
+#health-bar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.health-unit {
+    width: 30px;
+    height: 30px;
+    background-color: #ff0000;
+    clip-path: path('M15,0 L30,15 L15,30 L0,15 Z');
+    transition: all 0.3s ease;
+}
+
+.health-unit.lost {
+    background-color: #808080;
+    transform: scale(0.8);
+}
+
+.level-btn:disabled {
+    background: #808080;
+    cursor: not-allowed;
+}
+
+/* ... (kode CSS lainnya tetap sama) ... */

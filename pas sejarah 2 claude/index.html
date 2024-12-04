@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Sejarah Indonesia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="bgMusic" loop>
+        <source src="indonesia-raya.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="notification" class="notification"></div>
+
+    <div class="container">
+        <div id="main-menu">
+            <h1>Quiz Sejarah Indonesia</h1>
+            <button class="btn btn-play" onclick="showLevels()">Play</button>
+            <button class="btn btn-settings" onclick="showSettings()">Settings</button>
+        </div>
+
+        <div id="levels" class="levels">
+            <button class="level-btn" onclick="startLevel(1)">Level 1</button>
+            <button class="level-btn" onclick="startLevel(2)" disabled>Level 2</button>
+            <button class="level-btn" onclick="startLevel(3)" disabled>Level 3</button>
+            <button class="level-btn" onclick="startLevel(4)" disabled>Level 4</button>
+            <button class="level-btn" onclick="startLevel(5)" disabled>Level 5</button>
+            <button class="back-btn" onclick="showMainMenu()">Kembali</button>
+        </div>
+
+        <div id="settings" class="settings">
+            <h2>Settings</h2>
+            <div class="toggle">
+                <label>
+                    Musik:
+                    <input type="checkbox" id="musicToggle" onchange="toggleMusic()">
+                </label>
+            </div>
+            <button class="back-btn" onclick="showMainMenu()">Kembali</button>
+        </div>
+
+        <div id="question-container" class="question-container">
+            <div class="health-container">
+                <div id="health-bar">
+                    <div class="health-unit"></div>
+                    <div class="health-unit"></div>
+                    <div class="health-unit"></div>
+                </div>
+            </div>
+            <div id="question" class="question"></div>
+            <div id="options" class="options"></div>
+            <button class="back-btn" onclick="showLevels()">Kembali ke Level</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
